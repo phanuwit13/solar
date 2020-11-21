@@ -1,17 +1,126 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
+<!-- <ion-content [fullscreen]="true" class="bg">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title class="title"
+        ><ion-icon size="200" name="sunny"></ion-icon> Solar cell</ion-title
+      >
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="container">
+    <div class="column1">
+      <ion-icon class="btter" name="alarm"></ion-icon>
+      <div class="tx">
+        <span>{{timeDate}}</span>
+      </div>
+    </div>
+    <div class="column2">
+      <div class="ic">
+        <img src="../../assets/photo/solar.png" width="80px" />
+      </div>
+      <div class="tx1" *ngIf="item.length >0">
+        <span>Voltage</span>
+        <span style="padding-left: 10px;"> {{item[0].volteSolar}} </span>
+        <span style="padding-left: 10px;">V</span>
+        <br />
+        <span>Current</span>
+        <span style="padding-left: 10px;"> {{item[0].currentSolar}} </span>
+        <span style="padding-left: 10px;">A</span>
+      </div>
+    </div>
+    <div class="column1" *ngIf="item.length >0">
+      <ion-icon class="btter" name="battery-half"></ion-icon>
+      <div class="tx1">
+        <span>Voltage</span>
+        <span style="padding-left: 10px;"> {{item[0].volteBatt}} </span>
+        <span style="padding-left: 10px;">V</span>
+        <br />
+        <span>Current</span>
+        <span style="padding-left: 10px;"> {{item[0].currentBatt}} </span>
+        <span style="padding-left: 10px;">A</span>
+      </div>
+    </div>
+    <div class="column2" *ngIf="item.length >0">
+      <ion-icon class="btter" name="battery-charging"></ion-icon>
+      <div class="tx1">
+        <span>Battery</span>
+        <span style="padding-left: 10px;"> {{item[0].percentBatt}} </span>
+        <span style="padding-left: 10px;">%</span>
+        <br />
+        <span>Time</span>
+        <span style="padding-left: 10px;"> {{item[0].timeBatt}} </span>
+        <span style="padding-left: 10px;">M</span>
+      </div>
+    </div>
+    <div class="column1" *ngIf="item.length >0">
+      <ion-icon class="btter" name="wifi"></ion-icon><br />
+      <div class="tx1">
+        <span> {{connectStatus[item[0].connectStatus]}}</span>
+      </div>
+    </div>
+  </div>
+</ion-content> -->
+<ion-content mode="ios" [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title class="title"
+        ><ion-icon size="200" name="sunny"></ion-icon> Solar cell</ion-title
+      >
+    </ion-toolbar>
+  </ion-header> -->
 </ion-content>
+
+<div id="container">
+  <div class="box">
+    <ion-icon class="btter" class="ic" name="alarm"></ion-icon>
+    <!-- <ion-icon name="book-outline" class="ic"></ion-icon> -->
+    <div class="tx">
+      <span>{{timeDate}}</span>
+    </div>
+  </div>
+  <div  class="box" *ngIf="item.length >0">
+    <img class="ic" src="../../assets/photo/solar.png" width="80px" />
+    <div class="tx1" >
+      <span>Voltage</span>
+      <span style="padding-left: 10px;"> {{item[0].volteSolar}} </span>
+      <span style="padding-left: 10px;">V</span>
+    </div>
+    <div class="tx1" >
+      <span>Current</span>
+      <span style="padding-left: 10px;"> {{item[0].currentSolar}} </span>
+      <span style="padding-left: 10px;">A</span>
+    </div>
+  </div>
+  <div class="box"  *ngIf="item.length >0">
+    <ion-icon class="ic"name="battery-half"></ion-icon>
+    <div class="tx1">
+      <span>Voltage</span>
+      <span style="padding-left: 10px;"> {{item[0].volteBatt}} </span>
+      <span style="padding-left: 10px;">V</span>
+    </div>
+    <div class="tx1">
+      <span>Current</span>
+      <span style="padding-left: 10px;"> {{item[0].currentBatt}} </span>
+      <span style="padding-left: 10px;">A</span>
+    </div>
+  </div>
+  <div class="box" *ngIf="item.length >0">
+    <ion-icon  class="ic" name="battery-charging"></ion-icon>
+    <div class="tx1">
+      <span>Battery</span>
+      <span style="padding-left: 10px;"> {{item[0].percentBatt}} </span>
+      <span style="padding-left: 10px;">%</span>
+        
+    </div>
+    <div class="tx1">
+      <span>Time</span>
+      <span style="padding-left: 10px;"> {{item[0].timeBatt}} </span>
+      <span style="padding-left: 10px;">M</span>
+    </div>
+  </div>
+  <div class="box" *ngIf="item.length >0">
+    <ion-icon class="ic" name="wifi"></ion-icon><br />
+    <div class="tx">
+      <span> {{connectStatus[item[0].connectStatus]}}</span>
+    </div>
+  </div>
+</div>

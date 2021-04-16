@@ -1,17 +1,138 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="container">
+    <div class="row">
+      <button
+        [disabled]="!this.status"
+        (click)="setStatus()"
+        class="col box btn btn-success"
+      >
+        ON
+      </button>
+      <button
+        [disabled]="this.status"
+        (click)="setStatus()"
+        class="col box btn btn-danger"
+      >
+        OFF
+      </button>
+    </div>
+    <label class="group-title">แบตเตอรี่</label>
+    <div class="row">
+      <div class="col-6">
+        <label class="form-label">แรงดันขั้นต่ำ</label>
+        <div class="mb-3 d-flex">
+          <input
+            [(ngModel)]="lowVolteBatt"
+            type="text"
+            class="form-control w-100"
+          />
+          <button
+            (click)="upItem('lowVolteBatt',this.lowVolteBatt)"
+            class="btn btn-primary ml-2"
+          >
+            set
+          </button>
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="form-label">กระแสขั้นต่ำ</label>
+        <div class="mb-3 d-flex">
+          <input
+            [(ngModel)]="lowCurrentBatt"
+            type="text"
+            class="form-control w-100"
+          />
+          <button
+            (click)="upItem('lowCurrentBatt',this.lowCurrentBatt)"
+            class="btn btn-primary ml-2"
+          >
+            set
+          </button>
+        </div>
+      </div>
+    </div>
+    <label class="group-title mt-3">โซล่าเซลล์</label>
+    <div class="row">
+      <div class="col-6">
+        <label class="form-label">แรงดันขั้นต่ำ</label>
+        <div class="mb-3 d-flex">
+          <input
+            [(ngModel)]="lowVolteSolar"
+            type="text"
+            class="form-control w-100"
+          />
+          <button
+            (click)="upItem('lowVolteSolar',this.lowVolteSolar)"
+            class="btn btn-primary ml-2"
+          >
+            set
+          </button>
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="form-label">กระแสขั้นต่ำ</label>
+        <div class="mb-3 d-flex">
+          <input
+            [(ngModel)]="lowCurrentSolar"
+            type="text"
+            class="form-control w-100"
+          />
+          <button
+            (click)="upItem('lowCurrentSolar',this.lowCurrentSolar)"
+            class="btn btn-primary ml-2"
+          >
+            set
+          </button>
+        </div>
+      </div>
+    </div>
+    <div mode="ios" class="d-flex">
+      <ion-toggle
+        (ionChange)="setEnableTime()"
+        [(ngModel)]="this.enableTime"
+        slot="start"
+        name="blueberry"
+        checked
+      ></ion-toggle>
+      <ion-label class="ml-2 mt-1">ตั้งเวลาการทำงาน</ion-label>
+    </div>
+    <div class="row mt-3">
+      <div class="col-6">
+        <label class="form-label">เวลาเปิด</label>
+        <div class="mb-3 d-flex">
+          <ion-datetime
+            [disabled]="!this.enableTime"
+            [(ngModel)]="timeStart"
+            class="form-control"
+            displayFormat="HH:mm"
+          ></ion-datetime>
+          <button
+            [disabled]="!this.enableTime"
+            (click)="upTime('timeStart',this.timeStart)"
+            class="btn btn-primary ml-2"
+          >
+            set
+          </button>
+        </div>
+      </div>
+      <div class="col-6">
+        <label class="form-label">เวลาปิด</label>
+        <div class="mb-3 d-flex">
+          <ion-datetime
+            [disabled]="!this.enableTime"
+            [(ngModel)]="timeStop"
+            class="form-control"
+            displayFormat="HH:mm"
+          ></ion-datetime>
+          <button
+            [disabled]="!this.enableTime"
+            (click)="upTime('timeStop',this.timeStop)"
+            class="btn btn-primary ml-2"
+          >
+            set
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

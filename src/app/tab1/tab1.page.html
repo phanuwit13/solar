@@ -74,6 +74,7 @@
     <ion-icon class="btter" class="ic" name="alarm"></ion-icon>
     <!-- <ion-icon name="book-outline" class="ic"></ion-icon> -->
     <div class="tx">
+      <span>{{Date}}</span><br>
       <span>{{timeDate}}</span>
     </div>
   </div>
@@ -121,6 +122,16 @@
     <ion-icon class="ic" name="wifi"></ion-icon><br />
     <div class="tx">
       <span> {{connectStatus[item[0].connectStatus]}}</span>
+    </div>
+  </div>
+  <div class="box" *ngIf="item.length >0">
+    <ion-icon *ngIf="item[0].StatusError==0"  class="ic" name="checkmark-circle-outline"></ion-icon>
+    <ion-icon *ngIf="item[0].StatusError!=0" class="ic err" name="close-circle-outline"></ion-icon>
+    <div *ngIf="item[0].StatusError==0" class="tx">
+      <span> {{chargeStatus[item[0].StatusError]}}</span>
+    </div>
+    <div *ngIf="item[0].StatusError!=0" class="tx err">
+      <span> {{chargeStatus[item[0].StatusError]}}</span>
     </div>
   </div>
 </div>

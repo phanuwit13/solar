@@ -1,3 +1,16 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+.box {
+  height: 150px;
+  margin: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  font-weight: 600;
+}
+.group-title {
+  font-size: 20px;
+}

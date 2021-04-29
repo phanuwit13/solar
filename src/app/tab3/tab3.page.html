@@ -1,17 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="container mt-2">
+    <div class="form-group mb-0">
+      <label for="example-date-input">วันที่</label>
+      <input
+        (change)="dateSet($event)"
+        class="form-control"
+        type="date"
+        id="example-date-input"
+      />
+    </div>
+    <div class="ion-padding mt-0">
+      <div>
+        <ion-card-header> Bar Chart </ion-card-header>
+        <!-- <ion-card-content> -->
+        <!-- <canvas #barCanvas></canvas> -->
+        <canvas #barCanvas id="LineWithLine" width="600" height="400"></canvas>
+        <!-- </ion-card-content> -->
+      </div>
+      <div>
+        <ion-card-header> Bar Chart </ion-card-header>
+        <!-- <ion-card-content> -->
+        <!-- <canvas #barCanvas></canvas> -->
+        <canvas #barCanvas2 id="LineWithLine" width="600" height="400"></canvas>
+        <!-- </ion-card-content> -->
+      </div>
+    </div>
+    <p>Date = วันที่</p>
+    <p>Time = เวลา</p>
+    <p>VB = แรงดันแบตเตอรี่</p>
+    <p>VS = แรงดันโซลาร์</p>
+    <p>CB = กระแสแบตเตอรี่</p>
+    <p>CS = กระแสโซลาร์</p>
+    <h5>ตารางแสดงประวัติการชาร์จ</h5>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table-warning align-middle">
+          <th class="align-middle text-center" scope="col">Date</th>
+          <th class="align-middle text-center" scope="col">Time</th>
+          <th class="align-middle text-center" scope="col">VB</th>
+          <th class="align-middle text-center" scope="col">VS</th>
+          <th class="align-middle text-center" scope="col">CB</th>
+          <th class="align-middle text-center" scope="col">CS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dataShow">
+          <td class="align-middle">{{item[0].substring(5)}}</td>
+          <td class="align-middle">{{item[1].substring(5)}}</td>
+          <td class="align-middle">{{item[2].substring(3)}}</td>
+          <td class="align-middle">{{item[3].substring(3)}}</td>
+          <td class="align-middle">{{item[4].substring(3)}}</td>
+          <td class="align-middle">{{item[5].substring(3)}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </ion-content>
